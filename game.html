@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>King Hall Run</title>
+  <link rel="icon" type="image/x-icon" href="/assets/8bitlogo2.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js">
+  </script>
+  <script src="stoplight.js"></script>
+
+  <script src="soccerball.js"></script>
+
+
+  <script src="displaysoccerplayer1.js"></script>
+
+  <script src="player.js"></script>
+
+  <script src="obstacle.js"></script>
+
+  <script src="jumpableobstacle.js"></script>
+
+  <script src="obstaclemanager.js"></script>
+  <script src="collisions.js"></script>
+  <script src="powerup.js"></script>
+  <script src="sketch.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: #B599CE;
+    }
+
+    #gameCanvas {
+      border: 2px solid #000;
+      width: 80vw;
+      height: 80vh;
+      box-sizing: border-box;
+    }
+
+    #livesContainer {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 20px;
+      color: #CBB677;
+      /* JMU gold */
+      background-color: #450084;
+      /* JMU purple */
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 10;
+      font-size: large;
+      font-family: monaco;
+    }
+
+    #scoreContainer {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      color: #CBB677;
+      /* JMU gold */
+      background-color: #450084;
+      /* JMU purple */
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 10;
+      font-size: large;
+      font-family: monaco;
+    }
+
+    #buttonContainer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .dynamic-button {
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #450084;
+      /* JMU gold */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: large;
+      font-family: monaco;
+    }
+
+    .dynamic-button:hover {
+      color: #DACCE6;
+      background-color: #450084;
+      /* JMU purple */
+    }
+
+    #logo {
+      margin-top: 20px;
+      width: 150px;
+      /* bottom of pic has a border */
+      margin-bottom: 10px;
+
+      /* Adjust the width as needed */
+      height: auto;
+      /* Maintain aspect ratio */
+    }
+  </style>
+</head>
+
+<body>
+  <img id="logo" src="/assets/8bitlogo2.png" alt="Logo" onclick="window.location.href='index.html'">
+  <div id="livesContainer">
+    Grade: <span id="livesCount">A</span>
+  </div>
+
+  <div id="scoreContainer">
+    Score: <span id="scoreCount">0</span>
+  </div>
+
+  <div id="buttonContainer">
+    <button id="start-button" class="dynamic-button" type="button" onclick="startGameClicked()">Start</button>
+    <button id="how-to-button" class="dynamic-button" type="button" onclick="window.location.href='howto.html';">How To
+      Play</button>
+  </div>
+  <script>
+    function addButton(id, text, onClick) {
+      const buttonContainer = document.getElementById('buttonContainer');
+      const button = document.createElement('button');
+      button.id = id;
+      button.innerText = text;
+      button.onclick = onClick;
+      button.className = 'dynamic-button';
+      buttonContainer.appendChild(button);
+    }
+
+    function removeButton(id) {
+      const button = document.getElementById(id);
+      if (button) {
+        button.remove();
+      }
+    }
+
+    // Function to resize the canvas dynamically
+    function resizeCanvas() {
+      let canvas = document.getElementById('gameCanvas');
+      canvas.style.width = '80vw';
+      canvas.style.height = '80vh';
+    }
+
+    // Call resizeCanvas on window resize
+    window.addEventListener('resize', resizeCanvas);
+
+    // Initial call to set the canvas size
+    resizeCanvas();
+  </script>
+</body>
+
+</html>

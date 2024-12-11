@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>King Hall Run</title>
+    <link rel="icon" type="image/x-icon" href="/assets/8bitlogo2.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center;    /* Center horizontally */
+            background-color: #B599CE;
+        }
+
+        #logo {
+            width: 300px;
+            margin-bottom: 20px; /* Add space between logo and buttons */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        #menu {
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            gap: 10px; /* Add space between buttons */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: large;
+            font-family: monaco;
+        }
+
+        button:hover {
+            background-color: #5a3b94; /* Darker shade on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <img id="logo" src="/assets/8bitlogo2.png" alt="Logo">
+
+    <div id="menu">
+        <button id="start-button" type="button" onclick="window.location.href='game.html';">Start Game</button>
+        <button id="how-to-button" type="button" onclick="window.location.href='howto.html';">How To Play</button>
+    </div>
+</body>
+</html>

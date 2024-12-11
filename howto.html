@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>King Hall Run</title>
+    <link rel="icon" type="image/x-icon" href="/assets/8bitlogo2.png">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* Stack elements vertically */
+            justify-content: flex-start;
+            /* Align content at the top */
+            align-items: center;
+            /* Center content horizontally */
+            background-color: #B599CE;
+            font-size: xx-large;
+            font-family: monaco;
+        }
+
+        #logo {
+            width: 200px;
+            /* Logo width */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-bottom: 20px;
+            /* Space between logo and content boxes */
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: center;
+            /* Center content horizontally */
+            align-items: flex-start;
+            /* Align content at the top */
+            flex-wrap: wrap;
+            /* Allow wrapping for smaller screens */
+            gap: 20px;
+            /* Space between content boxes */
+            max-width: 100%;
+            /* Ensure content fits within the viewport */
+        }
+
+        .content-box {
+            display: flex;
+            flex-direction: column;
+            /* Default stacking layout */
+            align-items: center;
+            /* Center content horizontally */
+            justify-content: center;
+            /* Align content to the top of the box */
+            text-align: center;
+            border: 2px solid #fff;
+            /* Add a border for visual separation */
+            border-radius: 10px;
+            /* Rounded corners for the boxes */
+            background-color: #D8BFD8;
+            /* Slightly different background for the boxes */
+            padding: 20px;
+            /* Uniform padding */
+            width: 500px;
+            /* Fixed width for all boxes */
+            height: 600px;
+            /* Fixed height for all boxes */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Optional shadow for depth */
+            overflow: hidden;
+            /* Ensure content does not overflow */
+            font-size: x-large;
+            font-family: monaco;
+        }
+
+        .content-box img {
+            width: 400px;
+            /* Set default image size */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-bottom: 10px;
+            /* Add spacing between image and text */
+        }
+
+        .horizontal-images img {
+            display: inline-block;
+            /* Make images align horizontally */
+            margin: 0 5px;
+            /* Add spacing between images */
+            width: auto;
+        }
+
+        .grid-images {
+            display: grid;
+            /* Use grid layout for images */
+            grid-template-columns: repeat(2, 1fr);
+            /* Create a 2x2 grid */
+            gap: 10px;
+            /* Space between grid items */
+        }
+
+        .grid-images img {
+            width: 60%;
+            /* Make grid images fill their cells */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: large;
+            font-family: monaco;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="logo" src="/assets/8bitlogo2.png" alt="Logo" onclick="window.location.href='index.html'">
+
+    <div class="content-container">
+        <div class="content-box">
+            <div class="horizontal-images">
+                <img src="/assets/score_screenshot.png" alt="Score">
+                <img src="/assets/grade_screenshot.png" alt="Grade">
+            </div>
+            <div>In King Hall Run, the objective is to survive as long as possible without going down to an F grade.
+            </div>
+        </div>
+
+        <div class="content-box">
+            <img src="/assets/player_ex_screenshot.jpg" alt="Example">
+            <div>To move, use the arrow keys accordingly. Left and Right move you left and right, and Up will make you
+                jump.</div>
+        </div>
+
+        <div class="content-box">
+            <div class="grid-images">
+                <img src="/assets/starship.png" alt="Starship">
+                <img src="/assets/bus.png" alt="Bus">
+                <img src="/assets/scooterR.png" alt="Scooter">
+                <img src="/assets/CSduck.png" alt="Rubber Duck">
+            </div>
+            <div>
+                There are 3 types of obstacles: starships, buses, and scooters.
+                Starships and scooters can be jumped over, but buses must be avoided by moving to the side.
+                Hitting any of these will drop your grade. However, if you see a rubber duck, go hit it, as it boosts
+                your grade!
+            </div>
+        </div>
+    </div>
+    Now you're ready to play!
+    <button id="start-button" type="button" onclick="window.location.href='game.html';">Start Game</button>
+</body>
+
+</html>
