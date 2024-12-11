@@ -20,7 +20,6 @@ class ObstacleManager {
       600         // Right lane
     ];
   }
-
   update() {
     if (frameCount % this.obstacleInterval === 0) {
       this.spawnObstacles();

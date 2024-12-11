@@ -14,12 +14,8 @@ let incomingscooter = false;
 let scooterbuf = 0;
 let noobstaclemode = false;
 
-
-
 function preload() {
   scooterRImg = loadImage('assets/scooterR.png');
-  // soccerImg = loadImage('assets/soccer.png'); // Load the soccer ball image
-  // idleImg = loadImage('assets/idle.png'); // Load the idle animation image
   img = loadImage('assets/stairs.jpg');
   logo = loadImage('assets/8bitlogo.png');
   starship = loadImage('assets/starship.png');
@@ -55,8 +51,6 @@ function startGame() {
   score = 0;
   obstacleManager.clearObstacles();
   scooter = new SoccerBall(-30, height - 25, 90, scooterRImg); // Initialize the soccer ball at the bottom
-  // soccerPlayer = new SoccerPlayer(0, height - 50, idleImg, 35); // Initialize the soccer player at the bottom left
-  // soccerPlayer2 = new SoccerPlayer(965, height - 50, idleImg, 35); // Initialize the soccer player at the bottom left
   stoplightshow = new Stoplight(0, 460, greenStoplightImg, redStoplightImg); // Initialize the stoplight at the top center
 }
 
@@ -114,8 +108,6 @@ function draw() {
         incomingscooter = false;
         scooterbuf = 0;
         stoplightshow.redStoplight();
-        // lostLife();
-        // restartSketch();
         console.log("Player hit soccer ball");
         if (player.lives <= 0) {
           gameEnd = true;
@@ -129,18 +121,15 @@ function draw() {
             window.location.href = 'howto.html';
           });
         } else {
-          // scooter.resetBall();
           incomingscooter = false;
           scooterbuf = 0;
           stoplightshow.redStoplight();
           lostLife();
-          // restartSketch();
         }
       }
     }
 
     let randomNumber = Math.floor(Math.random() * 600) + 1;
-    // let randomNumber = Math.floor(Math.random() * 10) + 1;
     if (randomNumber === 8) {
       if (scooter.moving === false) {
         scooter.resetBall();
@@ -193,8 +182,6 @@ function restartSketch() {
   incomingscooter = false;
   scooterbuf = 0;
   stoplightshow.redStoplight();
-  // soccerPlayer = new SoccerPlayer(0, height - 50, idleImg, 35); // Initialize the soccer player at the bottom left
-  // soccerPlayer2 = new SoccerPlayer(965, height - 50, idleImg, 35); // Initialize the soccer player at the bottom left
 }
 
 function lostLife() {
@@ -253,6 +240,4 @@ function gainedLife() {
     player.isGrounded = false;
     player.velocityY = -player.jumpStrength;
   }
-
-
 }

@@ -4,7 +4,7 @@ class Stoplight {
         this.y = y;
         this.greenImg = greenImg;
         this.redImg = redImg;
-        this.currentImg = greenImg; // Start with the green stoplight
+        this.currentImg = greenImg;
         this.size = 150;
         this.red = false;
         this.green = false;
@@ -24,7 +24,5 @@ class Stoplight {
         this.currentImg = this.redImg;
         this.red = true;
         this.green = false;
-        // let incomingscooter = false;
-        // let scooterbuf = 0;
     }
 }

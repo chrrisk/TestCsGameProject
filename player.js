@@ -41,26 +41,21 @@ class Player {
       }
     } else {
       if (this.canMove && (keyIsDown(LEFT_ARROW) || keyIsDown(65))) {
-        // if (!this.isJumping) {
         if (this.currentLane > 0) {
           this.currentLane--;
           this.targetX = this.lanes[this.currentLane];
           this.isTransitioning = true;
           this.canMove = false;
         }
-        // }
       }
 
       if (this.canMove && (keyIsDown(RIGHT_ARROW) || keyIsDown(68))) {
-        // if (!this.isJumping) {
-
         if (this.currentLane < this.lanes.length - 1) {
           this.currentLane++;
           this.targetX = this.lanes[this.currentLane];
           this.isTransitioning = true;
           this.canMove = false;
         }
-        // }
       }
 
       if (!keyIsDown(LEFT_ARROW) && !keyIsDown(RIGHT_ARROW) && !keyIsDown(65) && !keyIsDown(68)) {
@@ -93,17 +88,17 @@ class Player {
     const sy = 160;
 
     // powerup animation
-    if (this.lifeGain){
+    if (this.lifeGain) {
       const auraOffsetX = 74;
       const auraOffsetY = 50;
 
       image(this.auraImg, this.x - auraOffsetX, this.y - auraOffsetY, this.width + 100, this.height + 100);
 
       this.lifeGainFrames = (this.lifeGainFrames || 0) + 1;
-        if (!this.isJumping && this.lifeGainFrames > 34) {
-          this.lifeGain = false;
-          this.lifeGainFrames = 0;
-        }
+      if (!this.isJumping && this.lifeGainFrames > 34) {
+        this.lifeGain = false;
+        this.lifeGainFrames = 0;
+      }
     }
 
     else if (this.isJumping) {
@@ -142,7 +137,6 @@ class Player {
     this.canMove = true;
     this.isTransitioning = false;
     this.transitionSpeed = 0.1;
-    // this.lives = 2;
   }
 
   getPlayerPosition() {

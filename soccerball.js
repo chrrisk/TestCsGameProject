@@ -26,11 +26,6 @@ class SoccerBall {
                     this.moving = false;
                 }
             }
-
-            // if (this.moving) {
-            //     // Adjust the angle for rolling effect based on direction
-            //     this.angle += (this.x < this.targetX ? 0.1 : -0.1);
-            // }
         }
     }
 
@@ -51,8 +46,6 @@ class SoccerBall {
 
     stopMoving() {
         this.moving = false;
-        // scooterbuf = 0;
-        // incomingscooter = false;
     }
 
     getBallPosition() {
